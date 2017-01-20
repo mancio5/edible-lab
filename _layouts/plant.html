@@ -1,0 +1,46 @@
+---
+layout:     default
+---
+{% assign plant = site.data.plants[page.id] %}
+<div class="row">
+    <div class="col-md-6">
+        <img src=""{{ "/img/plants/"  | prepend: site.baseurl }}{{page.id}}.jpg" alt="Logo Title Text 1"/>
+    </div>
+    <div class="col-md-6">
+    <h2>Info</h2>
+        <p><b>Germination: </b>{{ plant.germination }}</p>
+        <p><b>Harvesting: </b>{{ plant.harvesting }}</p>
+        <p><b>Spacing: </b>{{ plant.spacing }}</p>
+        {% if plant.raisedbed =='y' %}
+            <img src="{{ "img/icons/"  | prepend: site.baseurl }}raisedbed.png" alt="raisedbed"/>
+        {% endif %}
+        {% if plant.container =='y'%}
+            <img src="{{ "img/icons/"  | prepend: site.baseurl }}containers.png" alt="container"/>
+        {% endif %}
+        {% if plant.land =='y'%}
+            <img src="{{ "img/icons/"  | prepend: site.baseurl }}land.png" alt="land"/>
+        {% endif %}
+        {% if plant.hydroponic =='y' %}
+            <img src="{{ "img/icons/"  | prepend: site.baseurl }}hydroponic.png" alt="hydroponic"/>
+        {% endif %}
+    </div>
+</div>
+<div class="row">
+    <div class="col-md-10 col-md-offset-1">
+        <div id="plant-posts" class="col-md-12 content-panel articles">
+            <h2 id="{{ category | first }}-ref">{{ category | first }}</h2>
+            <ul style="list-style: none;">
+                {% for post in site.posts %}
+                    {% if post.plant == plant.full_name %}
+                      <li>
+                        <hr>
+                        <!-- problem of for cycle can't use images <img src="/{{ post.header-img | prepend: site.baseurl }}" class="img-responsive" alt="{{ post.title }}"> -->
+                        <h3><a href="{{ post.url | prepend: site.baseurl }}">{{ post.title }}</a></h3>
+                        <small class="hidden-xs">{{ post.date | date: "%B %-d, %Y" }}</small>
+                      </li>
+                    {% endif %}
+                {% endfor %}
+            </ul>
+        </div>  
+    </div>
+</div>

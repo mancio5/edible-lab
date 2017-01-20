@@ -1,0 +1,14 @@
+[
+	{
+		"id":0,"full_name": "carrot",
+		"germination": "10-50","harvesting": "50-60",
+		"spacing":"20cm", "depth":"10cm",
+		"raisedbed":"y","container":"y"
+	},
+	{
+		"id":1,"full_name": "tomato",
+		"germination": "10-50","harvesting": "50-60",
+		"spacing":"20cm", "depth":"10cm",
+		"raisedbed":"y","container":"y"
+	}
+]

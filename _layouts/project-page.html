@@ -1,0 +1,54 @@
+---
+layout: mainpage
+---
+<!-- Post Header -->
+<header id="header" class="intro-header bg-project-intro text-center" style="background-image: url('{{ site.baseurl }}/{% if page.header-img %}{{ page.header-img }}{% else %}{{ site.header-img }}{% endif %}')">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+              <div class="post-heading">
+                <h1>{{ page.title }}</h1>
+                {% if page.subtitle %}
+                <h2 class="subheading">{{ page.subtitle }}</h2>
+                {% endif %}
+                <a href="#post" class="page-scroll"><i class="fa fa-fw fa-2x fa-arrow-down"></i></a>
+              </div>
+            </div>
+        </div>
+    </div>
+    <div class="overlay-bg"></div>
+</header>
+<hr>
+<!-- Post Content -->
+<article>
+    <div id="post" class="container">
+        <div class="row">
+            <div class="col-md-2">
+                {% include nav-project.html %}
+            </div>
+            <div class="col-lg-8 col-md-10">
+        
+                {{ content }}
+                <div id="project-posts" class="col-md-12 content-panel articles">
+                    <h2 id="{{ category | first }}-ref">{{ category | first }}</h2>
+                    <ul style="list-style: none;">
+                        {% for post in site.posts %}
+                            
+                            {{post.name}}
+                            {% if post.project == page.project and post.layout != "project-intro" %}
+                              <li>
+                                <hr>
+                                <!-- problem of for cycle can't use images <img src="/{{ post.header-img | prepend: site.baseurl }}" class="img-responsive" alt="{{ post.title }}"> -->
+                                <h3><a href="{{ post.url | prepend: site.baseurl }}">{{ post.title }}</a></h3>
+                                <small class="hidden-xs">{{ post.date | date: "%B %-d, %Y" }}</small>
+                              </li>
+                            {% endif %}
+                        {% endfor %}
+                    </ul>
+                </div>          
+        
+
+            </div>
+        </div>
+    </div>
+</article>
