@@ -6,7 +6,7 @@ description: A blog about my gardening experience
 baseurl: "" # the subpath of your site, e.g. /blog/ (If you use organization leave empty)
 imgurl: "/assets/img/"
 imgurl-proj: "/assets/img/projects/"
-url: "https://www.mancinimatteo.com" # the base hostname & protocol for your site
+url: "https://blog.mancinimatteo.com" # the base hostname & protocol for your site
 
 #Google Ad Words Data from scripts code (using Google responsive options) and ad client
 # data-ad-slot: 2973388149
